@@ -1,0 +1,9 @@
+<!doctype html>
+<title>Upload 2nd File</title>
+<h1>Select 2nd image(jpeg only)</h1>
+<img border="0" src="{{filename}}" width="193" height="130"/>
+<form method=post enctype=multipart/form-data>
+  <input type=hidden name="firstimg" value="{{firstimg}}">
+  <input type=file name=secondimg>
+  <input type=submit value=Upload>
+</form>
