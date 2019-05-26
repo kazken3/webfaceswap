@@ -1,6 +1,8 @@
 # webfaceswap
 faceswap for web interface
 
+*Notice:Use for local environment only*
+
 Requirement
 * python3
 
