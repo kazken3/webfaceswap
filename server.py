@@ -2,6 +2,10 @@ import os
 from flask import Flask, flash, request, redirect, url_for, send_from_directory, render_template
 from werkzeug.utils import secure_filename
 import subprocess
+import logging
+
+#log = logging.getLogger('werkzeug')
+#log.setLevel(logging.ERROR)
 
 
 UPLOAD_FOLDER = './uploads'
@@ -32,9 +36,6 @@ def upload_file():
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-#                return
-#            return redirect(url_for('uploaded_file',
-#                                    filename=filename))
             return redirect(url_for('select_2nd_file',
                                     filename=filename))
     return '''
@@ -108,4 +109,4 @@ def oupput_file(filename):
 
 
 if __name__ == "__main__":
-    app.run(debug=True, host='0.0.0.0', port=8888, threaded=True)
+    app.run(debug=False, host='0.0.0.0', port=8888, threaded=True)

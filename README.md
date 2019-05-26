@@ -11,5 +11,5 @@ Preparing
 
 Install and exec
 1. exec `sh init.sh`
-2. exec `pipenv --three install -r requiments.txt`
-3. exec `pipenv run faceswap`
+2. exec `pipenv install --three` and wate a few minutes.
+3. exec `pipenv run faceswap` and click displayed URL.
