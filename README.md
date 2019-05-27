@@ -13,5 +13,5 @@ Preparing
 
 Install and exec
 1. exec `sh init.sh`
-2. exec `pipenv install --three` and wate a few minutes.
+2. exec `pipenv install --three` and wait a few minutes.
 3. exec `pipenv run faceswap` and click displayed URL.
