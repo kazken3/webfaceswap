@@ -2,10 +2,6 @@ import os
 from flask import Flask, flash, request, redirect, url_for, send_from_directory, render_template
 from werkzeug.utils import secure_filename
 import subprocess
-import logging
-
-#log = logging.getLogger('werkzeug')
-#log.setLevel(logging.ERROR)
 
 
 UPLOAD_FOLDER = './uploads'
@@ -38,15 +34,8 @@ def upload_file():
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             return redirect(url_for('select_2nd_file',
                                     filename=filename))
-    return '''
-    <!doctype html>
-    <title>Upload 1st File</title>
-    <h1>Select fiest image(jpeg only)</h1>
-    <form method=post enctype=multipart/form-data>
-      <input type=file name=file>
-      <input type=submit value=Upload>
-    </form>
-    '''
+
+    return render_template('1st.html')
 
 
 @app.route('/2nd', methods=['GET', 'POST'])
@@ -97,6 +86,7 @@ def check_all_file():
 def finish_file():
     file_url = './output/output.jpg'
     return render_template('finish.html', file_url=file_url)
+
 
 @app.route('/uploads/<filename>')
 def uploaded_file(filename):
